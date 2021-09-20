@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/apocrypta/static/css/main.e7401777.chunk.css",
+    "main.js": "/apocrypta/static/js/main.3c5bc197.chunk.js",
+    "main.js.map": "/apocrypta/static/js/main.3c5bc197.chunk.js.map",
+    "runtime-main.js": "/apocrypta/static/js/runtime-main.15182760.js",
+    "runtime-main.js.map": "/apocrypta/static/js/runtime-main.15182760.js.map",
+    "static/js/2.be94b3c7.chunk.js": "/apocrypta/static/js/2.be94b3c7.chunk.js",
+    "static/js/2.be94b3c7.chunk.js.map": "/apocrypta/static/js/2.be94b3c7.chunk.js.map",
+    "static/js/3.813cd8a7.chunk.js": "/apocrypta/static/js/3.813cd8a7.chunk.js",
+    "static/js/3.813cd8a7.chunk.js.map": "/apocrypta/static/js/3.813cd8a7.chunk.js.map",
+    "index.html": "/apocrypta/index.html",
+    "service-worker.js": "/apocrypta/service-worker.js",
+    "service-worker.js.map": "/apocrypta/service-worker.js.map",
+    "static/css/main.e7401777.chunk.css.map": "/apocrypta/static/css/main.e7401777.chunk.css.map",
+    "static/js/2.be94b3c7.chunk.js.LICENSE.txt": "/apocrypta/static/js/2.be94b3c7.chunk.js.LICENSE.txt",
+    "static/media/close.4200050a.svg": "/apocrypta/static/media/close.4200050a.svg",
+    "static/media/done.0db08473.svg": "/apocrypta/static/media/done.0db08473.svg",
+    "static/media/settings.e8bcb32b.svg": "/apocrypta/static/media/settings.e8bcb32b.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.15182760.js",
+    "static/js/2.be94b3c7.chunk.js",
+    "static/css/main.e7401777.chunk.css",
+    "static/js/main.3c5bc197.chunk.js"
+  ]
+}
