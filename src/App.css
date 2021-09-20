@@ -1,0 +1,9 @@
+.cipherbox-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.cipherlist-container {
+  display: flex;
+  gap: 1rem;
+}
