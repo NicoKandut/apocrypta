@@ -1,0 +1,12 @@
+.btn-img {
+  border: none;
+  opacity: 0.5;
+  background-color: transparent;
+  padding: 0.5rem;
+  transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn-img:hover,
+.btn-img:focus {
+  opacity: 1;
+}

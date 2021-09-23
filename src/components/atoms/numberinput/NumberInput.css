@@ -1,0 +1,24 @@
+.input {
+  display: inline-flex;
+  flex-direction: column;
+  color: var(--text-50);
+}
+
+.input:focus-within,
+.input-field:hover {
+  color: var(--text-100);
+}
+
+.input-title {
+  font-size: 13.333px;
+  padding-inline-start: 0.5rem;
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.input-field {
+  color: currentColor;
+  background-color: transparent;
+  border: none;
+  padding: 0.5rem;
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}

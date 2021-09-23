@@ -7,3 +7,30 @@
   display: flex;
   gap: 1rem;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app.dark {
+  background-color: var(--bg-0);
+  color: var(--text-100);
+  align-items: center;
+}
+
+.btn-add {
+  background-color: var(--bg-1);
+  color: var(--text-50);
+  border: solid 2px var(--bg-2);
+  padding: 0.5rem;
+  border-radius: 3px;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.btn-add:hover,
+.btn-add:focus {
+  color: var(--text-100);
+  border-color: var(--text-100);
+}

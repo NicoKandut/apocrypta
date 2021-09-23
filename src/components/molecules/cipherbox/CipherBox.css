@@ -1,45 +1,45 @@
 .cipherbox {
   display: flex;
   flex-direction: column;
-  border: black solid 2px;
+  border: var(--bg-2) solid 2px;
   flex-grow: 1;
   width: 300px;
   height: 200px;
+  border-radius: 3px;
+  background-color: var(--bg-1);
+  transition: border-color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.cipherbox:focus {
+  border-color: var(--text-100);
 }
 
 .cipherbox-titlebar {
-  background-color: black;
   display: flex;
   align-items: center;
 }
 
-.cipherbox-select {
-  background: transparent;
-  border: none;
-  color: white;
-  margin: 0;
-  padding: 0.5rem;
-}
-
 .cipherbox-select option {
-  background: black;
+  background: transparent;
 }
 
 .cipherbox-handle {
   flex-grow: 1;
 }
 
-.cipherbox-button {
-  border: none;
-  background-color: transparent;
-  padding: 0.5rem;
-}
-
 .cipherbox-content {
   display: block;
-  padding: 0.5rem;
+  padding: 1rem;
   resize: none;
   border: none;
   margin: 0;
   flex-grow: 1;
+  background-color: transparent;
+  color: var(--text-50);
+  transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.cipherbox-content:focus {
+  color: var(--text-100);
+  font-family: "Raleway", sans-serif;
 }
