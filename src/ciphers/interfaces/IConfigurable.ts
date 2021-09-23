@@ -1,3 +1,3 @@
 export interface IConfigurable {
-  settings: Record<string, boolean | number | string>;
+  settings: Record<string, boolean | number | string>
 }

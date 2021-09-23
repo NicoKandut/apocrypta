@@ -9,18 +9,18 @@ If you want to add a new cipher just make it extend `Clear` and override the `en
 ### Example for a simple cipher
 
 ```ts
-import { Clear } from "./Clear";
+import { Clear } from "./Clear"
 
 /**
  *  Wraps text in <>
  */
 export class MyCipher extends Clear {
   encode(text: string): string {
-    return `<${text}>`;
+    return `<${text}>`
   }
 
   decode(text: string): string {
-    return text.substr(1, text.length - 2);
+    return text.substr(1, text.length - 2)
   }
 }
 ```

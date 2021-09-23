@@ -1,5 +1,5 @@
-import { ButtonProps } from "./ButtonProps";
-import "./PrimaryButton.css";
+import { ButtonProps } from "./ButtonProps"
+import "./PrimaryButton.css"
 
 export const PrimaryButton = ({ title, icon, onClick }: ButtonProps) => (
   <button onClick={onClick} className="btn-primary">
@@ -11,4 +11,4 @@ export const PrimaryButton = ({ title, icon, onClick }: ButtonProps) => (
       title
     )}
   </button>
-);
+)

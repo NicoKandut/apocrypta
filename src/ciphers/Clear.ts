@@ -1,5 +1,5 @@
-import { generateId } from "../utils/idGenerator";
-import { ICipher } from "./interfaces/ICipher";
+import { generateId } from "../utils/idGenerator"
+import { ICipher } from "./interfaces/ICipher"
 
 /**
  * Not really a cipher.
@@ -8,18 +8,18 @@ import { ICipher } from "./interfaces/ICipher";
  * This cipher implements all required id behaviour. Therefore, it is recommended to extend {@link Clear} instead of implementing {@link ICipher}
  */
 export class Clear implements ICipher {
-  name = "clear";
-  readonly id: number;
+  name = "clear"
+  readonly id: number
 
   constructor() {
-    this.id = generateId();
+    this.id = generateId()
   }
 
   encode(text: string): string {
-    return text;
+    return text
   }
 
   decode(text: string): string {
-    return text;
+    return text
   }
 }
