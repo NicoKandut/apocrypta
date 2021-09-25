@@ -1,6 +1,6 @@
 import { ChangeEventHandler, useCallback, useState } from "react"
 import { Draggable } from "react-beautiful-dnd"
-import { ICipher } from "../../../ciphers/interfaces/ICipher"
+import { CipherInstance, CipherName } from "../../../ciphers"
 import close from "../../../icons/close.svg"
 import done from "../../../icons/done.svg"
 import settings from "../../../icons/settings.svg"
@@ -11,9 +11,9 @@ import CipherSelect from "./CipherSelect"
 import EditView, { CipherSettingValue } from "./EditView"
 
 type Props = {
-  cipher: ICipher
+  cipher: CipherInstance
   value: string
-  onTypeChange: (newValue: string) => void
+  onTypeChange: (newValue: CipherName) => void
   onTextChange: (newValue: string) => void
   onSettingChange: (key: string, value: CipherSettingValue) => void
   onClose: () => void

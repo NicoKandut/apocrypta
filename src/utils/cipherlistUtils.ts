@@ -1,4 +1,4 @@
-import { AnyCipher } from "../ciphers"
+import { CipherInstance } from "../ciphers"
 
 /**
  * Moves a cipher in a list of ciphers
@@ -7,7 +7,11 @@ import { AnyCipher } from "../ciphers"
  * @param to 0 based index
  * @returns a new list
  */
-export const moveCipher = (ciphers: AnyCipher[], from: number, to: number) => {
+export const moveCipher = (
+  ciphers: CipherInstance[],
+  from: number,
+  to: number
+) => {
   const result = [...ciphers]
   const [removed] = result.splice(from, 1)
   result.splice(to, 0, removed)

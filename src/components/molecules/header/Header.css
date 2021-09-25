@@ -1,8 +1,17 @@
-@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&family=Noto+Sans+Marchen&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative&display=swap");
 
 .app-title {
-  font-family: "Cinzel Decorative", "Noto Sans Marchen", sans-serif;
+  font-family: "Cinzel Decorative", sans-serif;
   font-weight: normal;
   height: 4rem;
-  vertical-align: center;
+  display: flex;
+}
+
+.app-title-letter {
+  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2rem;
+  width: 2rem;
 }

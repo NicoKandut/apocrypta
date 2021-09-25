@@ -2,9 +2,9 @@ import { useCallback, useEffect, useState } from "react"
 import { DragDropContext, Droppable, DropResult } from "react-beautiful-dnd"
 
 import "./App.css"
-import { AnyCipher, cipherByName, CipherName } from "./ciphers"
-import { Clear } from "./ciphers/Clear"
-import { Shift } from "./ciphers/Shift"
+import { CipherInstance, createCipher } from "./ciphers"
+import { Clear } from "./ciphers/cipherlib/Clear"
+import { Shift } from "./ciphers/cipherlib/Shift"
 import { CipherBox } from "./components/molecules/cipherbox/Cipherbox"
 import Footer from "./components/molecules/footer/Footer"
 import Header from "./components/molecules/header/Header"
@@ -17,7 +17,7 @@ const initialValues = initialCiphers.map(() => "")
 initialCiphers[1].settings.value = 3
 
 export const App = () => {
-  const [ciphers, setCiphers] = useState<AnyCipher[]>([...initialCiphers])
+  const [ciphers, setCiphers] = useState<CipherInstance[]>([...initialCiphers])
   const [values, setValues] = useState<string[]>(initialValues)
 
   const updateValues = useCallback(
@@ -81,7 +81,7 @@ export const App = () => {
                     value={values[i]}
                     onTypeChange={(value) => {
                       const newCiphers = [...ciphers]
-                      const newCipher = cipherByName[value as CipherName]()
+                      const newCipher = createCipher(value)
                       newCiphers.splice(i, 1, newCipher)
                       setCiphers(newCiphers)
                     }}

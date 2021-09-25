@@ -1,4 +1,4 @@
-import { IConfigurable } from "../../../ciphers/interfaces/IConfigurable"
+import { IConfigurable } from "../../../ciphers/types/IConfigurable"
 import NumberInput from "../../atoms/numberinput/NumberInput"
 import "./EditView.css"
 

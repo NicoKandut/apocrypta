@@ -1,17 +1,20 @@
-import { Base64 } from "./Base64"
-import { Clear } from "./Clear"
-import { Shift } from "./Shift"
+import { Base64 } from "./cipherlib/Base64"
+import { Clear } from "./cipherlib/Clear"
+import { Shift } from "./cipherlib/Shift"
 
 /**
- * List of all ciphers
+ * Assigns simple names to all ciphers
  * If you add a cipher, also add it to this list.
  */
-export type AnyCipher = Clear | Base64 | Shift
-
-export const cipherTypes = ["clear", "base64", "shift"] as const
-export type CipherName = typeof cipherTypes[number]
-export const cipherByName = {
-  clear: () => new Clear(),
-  base64: () => new Base64(),
-  shift: () => new Shift(),
+const cipherMap = {
+  [new Clear().name]: Clear,
+  [new Base64().name]: Base64,
+  [new Shift().name]: Shift,
 } as const
+
+export type CipherName = keyof typeof cipherMap
+export type CipherClass = typeof cipherMap[CipherName]
+export type CipherInstance = InstanceType<CipherClass>
+
+export const cipherNames = Object.freeze(Object.keys(cipherMap)) as CipherName[]
+export const createCipher = (name: CipherName) => new cipherMap[name]()

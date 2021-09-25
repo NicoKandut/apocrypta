@@ -1,38 +1,28 @@
 import { useEffect, useState } from "react"
+import { alphabet } from "../../../ciphers/utils/alphabet"
 import "./Header.css"
-
-const marchen = [
-  "\u{11C70}",
-  "\u{11C71}",
-  "\u{11C72}",
-  "\u{11C73}",
-  "\u{11C74}",
-  "\u{11C75}",
-  "\u{11C76}",
-  "\u{11C77}",
-  "\u{11C78}",
-  "\u{11C79}",
-]
 
 const realTitle = "Apocrypta"
 
 const randomInRange = (min: number, max: number) =>
   Math.floor(Math.random() * (max - min) + min)
-const randomMarchen = () => marchen[randomInRange(0, marchen.length)]
+const randomLetter = () => alphabet[randomInRange(0, alphabet.length)] as string
 
 export default function Header() {
-  const [title, setTitle] = useState(new Array(9).fill("").map(randomMarchen))
+  const [title, setTitle] = useState(
+    new Array(realTitle.length).fill("").map(randomLetter)
+  )
   const [solvedIdx, setSolvedIdx] = useState(0)
 
   useEffect(() => {
     const handle = setInterval(() => {
       const newTitle = []
-      setSolvedIdx(solvedIdx + 1)
+      setSolvedIdx(solvedIdx + 0.1)
       for (let i = 0; i < title.length; i++) {
         if (i < solvedIdx) {
           newTitle.push(realTitle[i])
         } else {
-          newTitle.push(randomMarchen())
+          newTitle.push(randomLetter())
         }
       }
 
@@ -41,14 +31,20 @@ export default function Header() {
       if (solvedIdx === title.length) {
         clearInterval(handle)
       }
-    }, 100)
+    }, 500 / (realTitle.length * 10))
 
     return () => clearInterval(handle)
   })
 
   return (
     <header className="app-header">
-      <h1 className="app-title">{title.join(" ")}</h1>
+      <h1 className="app-title">
+        {title.map((letter, index) => (
+          <span key={index} className="app-title-letter">
+            {letter}
+          </span>
+        ))}
+      </h1>
     </header>
   )
 }
