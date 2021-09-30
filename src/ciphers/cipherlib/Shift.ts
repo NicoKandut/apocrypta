@@ -1,17 +1,25 @@
 import { AbstractCipher } from "../types/AbstractCipher"
 import { IConfigurable } from "../types/IConfigurable"
-import { alphabet, indexOfLetter } from "../utils/alphabet"
+import { alphabet, alphabetUppercase, indexOfLetter } from "../utils/alphabet"
 
 const modularValue = (value: number, size: number) => (value + size) % size
-const createShift = (value: number) => (c: string) =>
-  c in indexOfLetter
+const createShift = (value: number) => (letter: string) =>
+  letter in indexOfLetter
     ? alphabet[
         modularValue(
-          indexOfLetter[c as typeof alphabet[number]] + value,
+          indexOfLetter[letter as typeof alphabet[number]] + value,
           alphabet.length
         )
       ]
-    : c
+    : letter.toLowerCase() in indexOfLetter
+    ? alphabetUppercase[
+        modularValue(
+          indexOfLetter[letter.toLowerCase() as typeof alphabet[number]] +
+            value,
+          alphabetUppercase.length
+        )
+      ]
+    : letter
 
 export class Shift extends AbstractCipher implements IConfigurable {
   readonly name = "Shift"
