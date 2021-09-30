@@ -3,7 +3,6 @@
   border: none;
   color: var(--text-50);
   margin: 0;
-  padding-inline: 1rem;
   transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 

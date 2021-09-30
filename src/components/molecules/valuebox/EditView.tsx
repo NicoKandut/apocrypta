@@ -21,6 +21,7 @@ const getInputByKeyAndValue = (
     case "number":
       return (
         <NumberInput
+          key={key}
           title={key}
           value={value}
           onChange={(newValue) => onChange(key, newValue)}

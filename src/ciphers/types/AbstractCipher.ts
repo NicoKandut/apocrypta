@@ -1,6 +1,6 @@
 import { generateId } from "../../utils/idGenerator"
+import { CipherDirection } from "./CipherDirection"
 import { ICipher } from "./ICipher"
-
 /**
  * Blueprint for ciphers.
  * If you want to add a new cipher, extend this class.
@@ -13,10 +13,16 @@ export abstract class AbstractCipher implements ICipher {
   readonly id: number
 
   /**
+   * By default ciphers encrypt from left to right and decrypt from right to left.
+   * This behaviour can be switched.
+   */
+  direction: CipherDirection = "encode"
+
+  /**
    * Default constructor that takes care of generating the {@link id}
    */
-  constructor() {
-    this.id = generateId()
+  constructor(id?: number) {
+    this.id = id || generateId()
   }
 
   /**

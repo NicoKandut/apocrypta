@@ -1,0 +1,15 @@
+.btn-addcipher {
+  background-color: var(--bg-1);
+  color: var(--text-50);
+  border: solid 2px var(--bg-2);
+  padding: 0.5rem;
+  border-radius: 3px;
+  transition: all 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  height: calc(4rem + 4px);
+}
+
+.btn-addcipher:hover,
+.btn-addcipher:focus {
+  color: var(--text-100);
+  border-color: var(--text-100);
+}

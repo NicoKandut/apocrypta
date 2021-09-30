@@ -10,7 +10,7 @@
 }
 
 .input-title {
-  font-size: 13.333px;
+  font-size: 12px;
   padding-inline-start: 0.5rem;
   transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }

@@ -9,6 +9,9 @@
 
   --accent-100: #448866;
   --accent-50: #224433;
+
+  --encode: #cc9955;
+  --decode: #4466aa;
 }
 
 *:focus {
@@ -18,7 +21,7 @@
 html,
 body,
 #root {
-  height: 100vh;
+  height: 100%;
 }
 
 body {

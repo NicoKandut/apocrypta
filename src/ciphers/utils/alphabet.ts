@@ -31,6 +31,10 @@ export const alphabet = Object.freeze([
   "z",
 ] as const)
 
+export const alphabetUppercase = Object.freeze([
+  ...alphabet.map((l) => l.toUpperCase()),
+] as const)
+
 /**
  * Maps all letters to their index.
  * The reason this is done statically is because typescript can evaluate the types better this way.

@@ -1,0 +1,41 @@
+.cipherarrow {
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: 1fr auto 1fr;
+}
+
+.cipherarrow:hover .cipherarrow-iconlist,
+.cipherarrow:focus .cipherarrow-iconlist {
+  opacity: 1;
+}
+
+.cipherarrow-iconlist {
+  opacity: 0;
+  display: flex;
+  justify-content: center;
+  transition: opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.cipherarrow-wrapper {
+  padding: 2px;
+  filter: drop-shadow(2px 0px 0px var(--bg-2))
+    drop-shadow(0px 2px 0px var(--bg-2)) drop-shadow(-2px 0px 0px var(--bg-2))
+    drop-shadow(0px -2px 0px var(--bg-2));
+}
+
+.cipherarrow-display {
+  height: 4rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  padding-inline: 2rem;
+  background-color: var(--bg-1);
+  clip-path: polygon(
+    1% 0%,
+    calc(99% - 20px) 0%,
+    99% 50%,
+    calc(99% - 20px) 100%,
+    1% 100%,
+    calc(20px) 50%
+  );
+}
