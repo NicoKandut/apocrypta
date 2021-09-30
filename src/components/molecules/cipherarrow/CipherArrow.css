@@ -4,8 +4,15 @@
   grid-template-rows: 1fr auto 1fr;
 }
 
+.cipherarrow:focus .cipherarrow-wrapper {
+  filter: drop-shadow(2px 0px 0px var(--text-100))
+    drop-shadow(0px 2px 0px var(--text-100))
+    drop-shadow(-2px 0px 0px var(--text-100))
+    drop-shadow(0px -2px 0px var(--text-100));
+}
+
 .cipherarrow:hover .cipherarrow-iconlist,
-.cipherarrow:focus .cipherarrow-iconlist {
+.cipherarrow:focus-within .cipherarrow-iconlist {
   opacity: 1;
 }
 

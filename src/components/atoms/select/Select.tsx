@@ -14,7 +14,7 @@ export default function Select({ value, values, onChange }: Props) {
   )
 
   return (
-    <select className="cipherbox-select" value={value} onChange={handleChange}>
+    <select className="select" value={value} onChange={handleChange}>
       {values.map((v) => (
         <option key={v} value={v}>
           {v}

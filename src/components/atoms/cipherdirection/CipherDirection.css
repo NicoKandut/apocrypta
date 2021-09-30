@@ -2,7 +2,7 @@
   font-size: 11px;
   color: var(--bg-0);
   padding: 0.1rem 0.5rem;
-  border: none;
+  border: transparent 2px solid;
   border-radius: 50px;
 }
 
@@ -10,6 +10,16 @@
   background-color: var(--encode);
 }
 
+.cipherdirection.encode:hover,
+.cipherdirection.encode:focus {
+  border: 2px var(--text-100) solid;
+}
+
 .cipherdirection.decode {
   background-color: var(--decode);
+}
+
+.cipherdirection.decode:hover,
+.cipherdirection.decode:focus {
+  border: 2px var(--text-100) solid;
 }

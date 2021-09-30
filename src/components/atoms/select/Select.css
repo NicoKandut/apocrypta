@@ -1,4 +1,4 @@
-.cipherbox-select {
+.select {
   background: transparent;
   border: none;
   color: var(--text-50);
@@ -6,11 +6,11 @@
   transition: color 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
-.cipherbox-select:focus,
-.cipherbox-select:hover {
+.select:focus,
+.select:hover {
   color: var(--text-100);
 }
 
-.cipherbox-select option {
+.select option {
   background-color: var(--bg-1);
 }
