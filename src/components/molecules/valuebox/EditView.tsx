@@ -12,10 +12,11 @@ type Props = {
   onSettingChange: (key: string, value: CipherSettingValue) => void
 }
 
-const getInputByKeyAndValue = (
+export const getInputByKeyAndValue = (
   key: string,
   value: CipherSettingValue,
-  onChange: (key: string, newValue: CipherSettingValue) => void
+  onChange: (key: string, newValue: CipherSettingValue) => void,
+  labelled: boolean = false
 ) => {
   switch (typeof value) {
     case "number":
@@ -25,6 +26,7 @@ const getInputByKeyAndValue = (
           title={key}
           value={value}
           onChange={(newValue) => onChange(key, newValue)}
+          labelled={labelled}
         />
       )
     default:
@@ -34,10 +36,10 @@ const getInputByKeyAndValue = (
 
 export default function EditView({ cipher, onSettingChange }: Props) {
   return (
-    <div className="cipherbox-settings">
+    <>
       {Object.entries(cipher.settings).map(([key, value]) =>
         getInputByKeyAndValue(key, value, onSettingChange)
       )}
-    </div>
+    </>
   )
 }

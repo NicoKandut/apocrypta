@@ -1,14 +1,22 @@
+import { useState } from "react"
 import { Draggable } from "react-beautiful-dnd"
+import { createPortal } from "react-dom"
 import { CipherName, cipherNames } from "../../../ciphers"
 import { CipherDirection as Direction } from "../../../ciphers/types/CipherDirection"
+import { IConfigurable } from "../../../ciphers/types/IConfigurable"
 import { SerializedCipher } from "../../../ciphers/types/SerializedCipher"
-import ImageButton from "../../atoms/button/ImageButton"
-import { CipherSettingValue } from "../valuebox/EditView"
-import "./CipherArrow.css"
-
 import close from "../../../icons/close.svg"
+import settings from "../../../icons/settings.svg"
+import { isConfigurable } from "../../../utils/cipherutils"
+import ImageButton from "../../atoms/button/ImageButton"
 import CipherDirection from "../../atoms/cipherdirection/CipherDirection"
+import Modal from "../../atoms/modal/Modal"
 import Select from "../../atoms/select/Select"
+import EditView, {
+  CipherSettingValue,
+  getInputByKeyAndValue,
+} from "../valuebox/EditView"
+import "./CipherArrow.css"
 
 type Props = {
   cipher: SerializedCipher
@@ -27,6 +35,11 @@ export default function CipherArrow({
   onClose,
   index,
 }: Props) {
+  const [isEditMode, setEditMode] = useState(false)
+
+  const singleSetting =
+    isConfigurable(cipher) && Object.keys(cipher.settings).length === 1
+
   return (
     <Draggable draggableId={cipher.id.toString()} index={index}>
       {(provided) => (
@@ -38,6 +51,13 @@ export default function CipherArrow({
         >
           <div className="cipherarrow-iconlist">
             <ImageButton icon={close} onClick={onClose} title="Remove" />
+            {isConfigurable(cipher) && !singleSetting && (
+              <ImageButton
+                icon={settings}
+                onClick={() => setEditMode(true)}
+                title="Settings"
+              />
+            )}
           </div>
           <div className="cipherarrow-wrapper">
             <div className="cipherarrow-display">
@@ -50,8 +70,24 @@ export default function CipherArrow({
                 values={cipherNames}
                 onChange={(newName) => onNameChange(newName as CipherName)}
               />
+              {isConfigurable(cipher) &&
+                singleSetting &&
+                getInputByKeyAndValue(
+                  ...Object.entries(cipher.settings)[0],
+                  onSettingChange
+                )}
             </div>
           </div>
+          {isEditMode &&
+            createPortal(
+              <Modal title="Settings" onClose={() => setEditMode(false)}>
+                <EditView
+                  cipher={cipher as IConfigurable}
+                  onSettingChange={onSettingChange}
+                />
+              </Modal>,
+              document.getElementById("modal-root") as HTMLElement
+            )}
         </div>
       )}
     </Draggable>

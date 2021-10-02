@@ -49,6 +49,7 @@ export const App = () => {
         </button>
       </main>
       <Footer />
+      <div id="modal-root"></div>
     </div>
   )
 }

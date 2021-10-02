@@ -15,6 +15,7 @@ export const calculationsMiddleware: Middleware<{}, RootState> =
         "calculations/moveCalculation",
         "calculations/setCipherName",
         "calculations/setCipherDirection",
+        "calculations/setCipherSettings",
       ].includes(action.type)
     ) {
       store.dispatch(recalculate())
