@@ -2,6 +2,7 @@ import { isConfigurable } from "../utils/cipherutils"
 import { Base64 } from "./cipherlib/Base64"
 import { Clear } from "./cipherlib/Clear"
 import { Shift } from "./cipherlib/Shift"
+import { Vigenere } from "./cipherlib/Vigenere"
 import { SerializedCipher } from "./types/SerializedCipher"
 
 /**
@@ -12,6 +13,7 @@ const cipherMap = {
   [new Clear().name]: Clear,
   [new Base64().name]: Base64,
   [new Shift().name]: Shift,
+  [new Vigenere().name]: Vigenere,
 } as const
 
 export type CipherName = keyof typeof cipherMap

@@ -1,25 +1,9 @@
 import { AbstractCipher } from "../types/AbstractCipher"
 import { IConfigurable } from "../types/IConfigurable"
-import { alphabet, alphabetUppercase, indexOfLetter } from "../utils/alphabet"
+import { alphabet, alphabetUppercase } from "../utils/alphabet"
+import { createRotation } from "../utils/rotation"
 
-const modularValue = (value: number, size: number) => (value + size) % size
-const createShift = (value: number) => (letter: string) =>
-  letter in indexOfLetter
-    ? alphabet[
-        modularValue(
-          indexOfLetter[letter as typeof alphabet[number]] + value,
-          alphabet.length
-        )
-      ]
-    : letter.toLowerCase() in indexOfLetter
-    ? alphabetUppercase[
-        modularValue(
-          indexOfLetter[letter.toLowerCase() as typeof alphabet[number]] +
-            value,
-          alphabetUppercase.length
-        )
-      ]
-    : letter
+const alphabets = [alphabet, alphabetUppercase]
 
 export class Shift extends AbstractCipher implements IConfigurable {
   readonly name = "Shift"
@@ -27,12 +11,12 @@ export class Shift extends AbstractCipher implements IConfigurable {
   settings = { value: 1 }
 
   encode(text: string): string {
-    const shift = createShift(this.settings.value)
+    const shift = createRotation(this.settings.value, alphabets)
     return text.split("").map(shift).join("")
   }
 
   decode(text: string): string {
-    const shift = createShift(this.settings.value * -1)
+    const shift = createRotation(this.settings.value * -1, alphabets)
     return text.split("").map(shift).join("")
   }
 }
